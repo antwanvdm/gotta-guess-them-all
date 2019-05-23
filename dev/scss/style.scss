@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+$progress-bar-background-color: grey;
+$progress-value-background-color: #ff3860;
+$progress-border-radius: 0;
+
+@import "~bulma/bulma";
+@import "~bulma-pageloader/dist/css/bulma-pageloader";
+@import "~bulma-checkradio/dist/css/bulma-checkradio";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#initial:after,
+#pageloader.end-screen::after {
+  display: none;
+}
+
+#initial .title {
+  margin-top: -60px;
+}
+
+#pageloader.end-screen .title {
+  margin-top: -10px;
+}
+
+.pageloader .title {
+  white-space: normal;
+  text-align: center;
+}
+
+.is-checkradio[type="checkbox"] + label::before {
+  border: none !important;
+}
+
+.button {
+  width: 100%;
+}
+
+cp-pokemon {
+  position: fixed;
+  transform: translateZ(0);
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+cp-score {
+  position: fixed;
+  top: 10px;
+  right: 5px;
+}
+
+.progress {
+  height: 5px;
+}
+
+.progress:not(:last-child) {
+  margin-bottom: 0;
+}
