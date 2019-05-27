@@ -31,7 +31,9 @@ should look like the following code.
   "game": {
     "activePokemon": 386,
     "scorePerQuestion": 3,
-    "secondsPerQuestion": 8
+    "secondsPerQuestion": 8,
+    "initialLoaderActiveTimeOut": 400,
+    "loadScreenActiveTimeOut": 2000
   }
 }
 ```

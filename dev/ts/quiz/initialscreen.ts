@@ -12,6 +12,9 @@ export default class InitialScreen {
             this.$initialForm = document.getElementById('form-pokemon-initial') as HTMLFormElement;
             this.$initialForm.addEventListener('submit', (e) => this.quiz.initialFormSubmitHandler(e));
         }, 0);
+
+        //Ugly but also needed to trigger CSS animation the right way... :(
+        setTimeout(() => document.getElementById("initial").classList.add('is-active'), 50);
     }
 
     private renderTemplate(): void {
@@ -39,7 +42,6 @@ export default class InitialScreen {
 
         this.quiz.$main.insertAdjacentHTML('beforeend', $template);
         this.quiz.$main.classList.remove('is-loading');
-        document.getElementById("initial").classList.add('is-active');
     }
 
     public remove() {

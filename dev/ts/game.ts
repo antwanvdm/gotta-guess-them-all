@@ -1,13 +1,13 @@
+import config from './config.json'
 import PokemonFactory from "./pokemon/pokemonfactory";
 import Quiz from "./quiz/quiz";
 
 export default class Game {
     private readonly pokemonFactory: PokemonFactory;
-    private readonly quiz: Quiz;
 
     constructor() {
         this.pokemonFactory = new PokemonFactory();
-        this.quiz = new Quiz();
+        setTimeout(() => new Quiz(), config.game.initialLoaderActiveTimeOut);
         this.gameLoop();
     }
 
