@@ -1,7 +1,15 @@
 type FunctionCallback = (data: {}) => any;
 
 export default class PokemonDataService {
+    private static instance: PokemonDataService;
     private readonly baseUrl: string = "https://pokeapi.co/api/v2/";
+
+    private constructor() {
+    }
+
+    public static getInstance() {
+        return PokemonDataService.instance || (PokemonDataService.instance = new PokemonDataService());
+    }
 
     /**
      * @param pokedexEntry

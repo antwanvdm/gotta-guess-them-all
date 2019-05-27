@@ -4,11 +4,12 @@ import PokemonDataService from "./pokemondataservice";
 
 export default class Pokemon extends HTMLElement {
     private readonly pokedexEntry: number;
-    private dataService: PokemonDataService = new PokemonDataService();
+    private dataService: PokemonDataService = PokemonDataService.getInstance();
     private width: number = 96;
     private height: number = 96;
     private x: number = 0;
     private y: number = 0;
+    private stripFromName: string[] = ['-m$', '-f$'];
     private _sprites: PokemonSprites = null;
     private _name: string;
 
@@ -41,7 +42,9 @@ export default class Pokemon extends HTMLElement {
     }
 
     private assignLoadedData(data: any): void {
-        this._name = data.name;
+        //Strip exceptions
+        let regExp = new RegExp(this.stripFromName.join('|'), "gi");
+        this._name = data.species.name.replace(regExp, '');
         this.sprites = data.sprites;
     }
 
