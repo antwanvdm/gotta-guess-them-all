@@ -24,7 +24,7 @@ export default class GuessForm {
                 <div class="field">
                     <div class="control">
                         <label for="pokemon-guess-name" class="is-hidden"></label>
-                        <input id="pokemon-guess-name" class="input is-info is-expanded" type="text" placeholder="Who is this Pokémon?!" autocomplete="off"/>
+                        <input id="pokemon-guess-name" class="input is-info is-expanded" type="text" placeholder="Who is this Pokémon?!" autocomplete="off" autocorrect="off" autocapitalize="none"/>
                     </div>
                 </div>
             </form>
@@ -47,7 +47,7 @@ export default class GuessForm {
      * @return string
      */
     public getCurrentValue(): string {
-        return this.$guessFormInput.value;
+        return this.$guessFormInput.value.toLowerCase();
     }
 
     /**

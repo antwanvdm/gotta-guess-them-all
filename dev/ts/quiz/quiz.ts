@@ -15,6 +15,9 @@ export default class Quiz {
     private score: Score;
     private guessedPokemon: string;
 
+    /**
+     * @todo This class combined with InitialScreen, GuessForm and LoadScreen should probably be refactored a little..
+     */
     constructor() {
         this.$main = document.getElementById('main');
         this.initialScreen = new InitialScreen(this);
