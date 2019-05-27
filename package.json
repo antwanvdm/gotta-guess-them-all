@@ -13,8 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.7.5",
-    "bulma-pageloader": "^2.1.0",
-    "bulma-checkradio": "^1.1.0"
+    "bulma-checkradio": "^1.1.0",
+    "bulma-pageloader": "^2.1.0"
   },
   "devDependencies": {
     "css-loader": "^2.1.1",

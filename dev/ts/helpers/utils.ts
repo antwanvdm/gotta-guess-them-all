@@ -15,7 +15,7 @@ export default class Utils {
      * Get a random property from a object with keys
      * @param obj
      */
-    static randomProperty(obj: any) {
+    static randomProperty(obj: any): any {
         let keys = Object.keys(obj);
         return obj[keys[keys.length * Math.random() << 0]];
     }

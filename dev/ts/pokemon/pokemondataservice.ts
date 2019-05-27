@@ -7,7 +7,7 @@ export default class PokemonDataService {
     private constructor() {
     }
 
-    public static getInstance() {
+    public static getInstance(): PokemonDataService {
         return PokemonDataService.instance || (PokemonDataService.instance = new PokemonDataService());
     }
 
@@ -15,7 +15,7 @@ export default class PokemonDataService {
      * @param pokedexEntry
      * @param successHandler
      */
-    public getPokemonByPokedexEntry(pokedexEntry: number, successHandler: FunctionCallback) {
+    public getPokemonByPokedexEntry(pokedexEntry: number, successHandler: FunctionCallback): void {
         this.fetchAPIData(`pokemon/${pokedexEntry}`, successHandler)
     }
 

@@ -8,58 +8,8 @@
     <title>Pokémon: Gotta guess them all!</title>
 </head>
 <body>
-<main id="main">
-    <section id="initial" class="pageloader is-info is-active">
-        <div class="title">
-            <form id="form-pokemon-initial">
-                <label for="pokemon-guess-amount" class="label">How many Pokémon from gen I, II & III can you recognise in the blink of an eye?</label>
-
-<!--                <div class="fields">-->
-<!--                    <div class="field">-->
-<!--                        <input class="is-checkradio is-block is-success" id="gen1" type="checkbox" checked="checked" disabled>-->
-<!--                        <label for="gen1">Gen I</label>-->
-<!--                    </div>-->
-<!--                    <div class="field">-->
-<!--                        <input class="is-checkradio is-block is-success" id="gen2" type="checkbox" checked="checked">-->
-<!--                        <label for="gen2">Gen II</label>-->
-<!--                    </div>-->
-<!--                    <div class="field">-->
-<!--                        <input class="is-checkradio is-block is-success" id="gen3" type="checkbox" checked="checked">-->
-<!--                        <label for="gen3">Gen III</label>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-                <div class="field">
-                    <div class="control">
-                        <input id="pokemon-guess-amount" class="input is-warning is-expanded" type="number" min="5" max="100" value="5" autofocus/>
-                    </div>
-                    <div class="control">
-                        <input id="pokemon-guess-username" class="input is-warning is-expanded" type="text" placeholder="your name"/>
-                    </div>
-                    <div class="control">
-                        <input type="submit" class="button is-warning" value="I'm gonna guess them all! &#x1F525;"/>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <section id="pokemons"></section>
-
-    <form id="form-pokemon-guess" class="is-hidden">
-        <progress id="progress" class="progress" value="0" max="100"></progress>
-        <div class="field">
-            <div class="control">
-                <label for="pokemon-guess-name" class="is-hidden"></label>
-                <input id="pokemon-guess-name" class="input is-info is-expanded" type="text" placeholder="Who is this Pokémon?!" autocomplete="off"/>
-            </div>
-        </div>
-    </form>
-
-    <section id="pageloader" class="pageloader is-warning">
-        <span class="title">Pokémons are loaded into the system</span>
-    </section>
-</main>
+<main id="main" class="is-loading"></main>
+<section id="pokemons"></section>
 <script src="./js/main.js"></script>
 </body>
 </html>
