@@ -23,6 +23,7 @@ export default class Timer {
     }
 
     public start(): void {
+        this.$progress = document.getElementById('progress'); // Only here due to translation @todo
         this.intervalId = setInterval(() => this.update(), 1000);
         this.progressbarIntervalId = setInterval(() => this.updateProgressbar(), 10);
         this.progressbarStartTime = new Date().getTime();

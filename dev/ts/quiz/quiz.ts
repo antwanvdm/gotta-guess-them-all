@@ -3,6 +3,7 @@ import Score from "./score";
 import GuessForm from "./guessform";
 import LoadScreen from "./loadscreen";
 import InitialScreen from "./initialscreen";
+import Translator from "../helpers/translator";
 
 export default class Quiz {
     public $main: HTMLElement;
@@ -64,7 +65,7 @@ export default class Quiz {
             return;
         }
 
-        this.loadScreen.changeTitle(`Nope! This Pokémon was ${this.guessedPokemon}! New Pokémon incoming!`);
+        this.loadScreen.changeTitle(Translator.i().t.wrongAnswer.replace("[[pokemon]]", this.guessedPokemon));
         this.loadScreen.setStatus('danger');
         this.loadScreen.triggerNewQuestion();
     }
@@ -83,14 +84,14 @@ export default class Quiz {
             return;
         }
 
-        this.loadScreen.changeTitle('That\'s as good as it gets! New Pokémon incoming!');
+        this.loadScreen.changeTitle(Translator.i().t.goodAnswer);
         this.loadScreen.setStatus('success');
         this.loadScreen.triggerNewQuestion();
     }
 
     private endScreen(): void {
         let maxScore = this.score.getMax(this.totalQuestions);
-        this.loadScreen.changeTitle(`Thanks for playing, your total score is: ${this.score.value} / ${maxScore}`);
+        this.loadScreen.changeTitle(Translator.i().t.endMessage.replace("[[score]]", this.score.value.toString()).replace("[[maxScore]]", maxScore.toString()));
         this.loadScreen.setStatus('primary');
         this.loadScreen.markEnd();
     }

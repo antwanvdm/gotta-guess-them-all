@@ -39,6 +39,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "docs/js"),
+        publicPath: "/js/", //Only used to fix code splitting... @todo Check why this is needed
         filename: "main.js"
     }
 };

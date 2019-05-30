@@ -28,6 +28,10 @@ demo here: [Check it out!](https://gotta-guess-them-all.antwan.eu)
 should look like the following code.
 ```
 {
+  "languages": [
+    "en",
+    "nl"
+  ],
   "game": {
     "activePokemon": 386,
     "scorePerQuestion": 3,
@@ -39,7 +43,8 @@ should look like the following code.
 ```
 
 ## Road map
-* ~~Setup a first working version.~~
+* ~~Setup a first working version~~
+* ~~Multilingual setup~~
 * Refactor code based on feedback of peers
 * Make selection of gens to choose from
 * Make a pre-download option of all assets needed. Right now the more

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "es6",
-    "module": "es6",
+    "module": "esnext",
     "removeComments": true,
     "noUnusedParameters": true,
     "strictNullChecks": false,

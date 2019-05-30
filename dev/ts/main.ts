@@ -1,4 +1,7 @@
 import '../scss/style.scss';
 import Game from './game';
 
-window.addEventListener('load', () => new Game());
+window.addEventListener('load', async () => {
+    const game = new Game();
+    (await game.initialize()).start();
+});

@@ -1,5 +1,6 @@
 import config from '../config.json';
 import Quiz from "./quiz";
+import Translator from "../helpers/translator";
 
 export default class LoadScreen {
     private $loadScreen: HTMLElement;
@@ -8,20 +9,26 @@ export default class LoadScreen {
     constructor(quiz: Quiz) {
         this.quiz = quiz;
         this.renderTemplate();
-
-        setTimeout(() => {
-            this.$loadScreen = document.getElementById("pageloader");
-        }, 0);
+        window.addEventListener('translator:languageChange', () => this.renderTemplate());
     }
 
     private renderTemplate(): void {
+        document.getElementById('pageloader') !== null ? document.getElementById('pageloader').remove() : '';
+
         let $template = `
             <section id="pageloader" class="pageloader is-warning">
-                <span class="title">Pokémons are loaded into the system</span>
+                <span class="title">${Translator.i().t.loading}</span>
             </section>
         `;
 
         this.quiz.$main.insertAdjacentHTML('beforeend', $template);
+        this.renderDone();
+    }
+
+    private renderDone(): void {
+        setTimeout(() => {
+            this.$loadScreen = document.getElementById("pageloader");
+        }, 0);
     }
 
     public show(): void {

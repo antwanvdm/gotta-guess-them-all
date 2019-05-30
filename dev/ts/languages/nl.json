@@ -1,0 +1,11 @@
+{
+  "title": "Pokémon: Gotta guess them all!",
+  "introQuestion": "Hoeveel Pokémon uit gen I, II & III herken jij in één oogopslag?",
+  "inputName": "jouw naam",
+  "inputSubmit": "Ik raad ze allemaal!",
+  "loading": "Pokémons worden momenteel ingeladen",
+  "guessPokemon": "Wie is deze Pokémon?!",
+  "wrongAnswer": "Helaas! Deze Pokémon was [[pokemon]]! Nieuwe Pokémon is onderweg!",
+  "goodAnswer": "Veel beter gaat het niet worden! Nieuwe Pokémon is onderweg!",
+  "endMessage": "Dank voor het spelen, Je eindscore is: [[score]] / [[maxScore]]"
+}

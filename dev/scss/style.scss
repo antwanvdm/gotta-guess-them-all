@@ -57,6 +57,10 @@ html, body {
   border: none !important;
 }
 
+.is-checkradio[type="radio"].is-small + label {
+  padding-left: 0;
+}
+
 .button {
   width: 100%;
 }
