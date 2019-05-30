@@ -41,11 +41,12 @@ export default class InitialScreen {
         `;
 
         this.quiz.$main.insertAdjacentHTML('beforeend', $template);
-        this.quiz.$main.classList.remove('is-loading');
         this.renderDone();
     }
 
     private renderDone(): void {
+        this.quiz.$main.classList.remove('is-loading');
+
         setTimeout(() => {
             this.$initialForm = document.getElementById('form-pokemon-initial') as HTMLFormElement;
             this.$initialForm.addEventListener('submit', (e) => this.quiz.initialFormSubmitHandler(e));
@@ -68,12 +69,12 @@ export default class InitialScreen {
         }).join("");
     }
 
-    private async languageChangeHandler(e: Event) {
+    private async languageChangeHandler(e: Event): Promise<any> {
         Translator.i().currentLanguage = (e.currentTarget as HTMLInputElement).value;
         await Translator.i().setT();
     }
 
-    public remove() {
+    public remove(): void {
         this.$initialForm.remove();
     }
 }

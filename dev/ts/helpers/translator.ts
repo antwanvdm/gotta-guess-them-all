@@ -35,7 +35,7 @@ export default class Translator {
         return Translator.instance || (Translator.instance = new Translator());
     }
 
-    public async setT() {
+    public async setT(): Promise<any> {
         let translateImport = await import(`../languages/${this.currentLanguage}.json`) as { [key: string]: {} };
         this._t = translateImport.default;
         window.dispatchEvent(new Event('translator:languageChange'));
