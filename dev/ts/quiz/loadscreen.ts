@@ -1,18 +1,11 @@
 import config from '../config.json';
-import Quiz from "./quiz";
 import Translator from "../helpers/translator";
+import QuizElement from "./quizelement";
 
-export default class LoadScreen {
+export default class LoadScreen extends QuizElement {
     private $loadScreen: HTMLElement;
-    private quiz: Quiz;
 
-    constructor(quiz: Quiz) {
-        this.quiz = quiz;
-        this.renderTemplate();
-        window.addEventListener('translator:languageChange', () => this.renderTemplate());
-    }
-
-    private renderTemplate(): void {
+    renderTemplate(): void {
         document.getElementById('pageloader') !== null ? document.getElementById('pageloader').remove() : '';
 
         let $template = `
@@ -22,10 +15,10 @@ export default class LoadScreen {
         `;
 
         this.quiz.$main.insertAdjacentHTML('beforeend', $template);
-        this.renderDone();
+        this.renderTemplateDone();
     }
 
-    private renderDone(): void {
+    renderTemplateDone(): void {
         setTimeout(() => {
             this.$loadScreen = document.getElementById("pageloader");
         }, 0);
