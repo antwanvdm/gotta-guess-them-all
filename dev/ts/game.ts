@@ -14,15 +14,20 @@ export default class Game {
      * Make a initialise compatible with chain
      * @return Game
      */
-    public async initialize() {
+    public async initialize(): Promise<any> {
         await Translator.i().setT();
         return this;
     }
 
-    public start() {
+    public start(): void {
         setTimeout(() => new Quiz(), config.game.initialLoaderActiveTimeOut);
-        document.title = Translator.i().t('title');
+        this.updateTitle();
+        window.addEventListener('translator:languageChange', () => this.updateTitle());
         this.gameLoop();
+    }
+
+    private updateTitle(): void {
+        document.title = Translator.i().t('title');
     }
 
     private gameLoop(): void {
