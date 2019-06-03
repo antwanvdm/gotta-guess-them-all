@@ -21,7 +21,7 @@ export default class Game {
 
     public start() {
         setTimeout(() => new Quiz(), config.game.initialLoaderActiveTimeOut);
-        document.title = Translator.i().t.title;
+        document.title = Translator.i().t('title');
         this.gameLoop();
     }
 

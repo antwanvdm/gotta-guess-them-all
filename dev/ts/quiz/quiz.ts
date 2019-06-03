@@ -65,7 +65,7 @@ export default class Quiz {
             return;
         }
 
-        this.loadScreen.changeTitle(Translator.i().t.wrongAnswer.replace("[[pokemon]]", this.guessedPokemon));
+        this.loadScreen.changeTitle(Translator.i().t('wrongAnswer', {pokemon: this.guessedPokemon}));
         this.loadScreen.setStatus('danger');
         this.loadScreen.triggerNewQuestion();
     }
@@ -84,14 +84,17 @@ export default class Quiz {
             return;
         }
 
-        this.loadScreen.changeTitle(Translator.i().t.goodAnswer);
+        this.loadScreen.changeTitle(Translator.i().t('goodAnswer'));
         this.loadScreen.setStatus('success');
         this.loadScreen.triggerNewQuestion();
     }
 
     private endScreen(): void {
         let maxScore = this.score.getMax(this.totalQuestions);
-        this.loadScreen.changeTitle(Translator.i().t.endMessage.replace("[[score]]", this.score.value.toString()).replace("[[maxScore]]", maxScore.toString()));
+        this.loadScreen.changeTitle(Translator.i().t('endMessage', {
+            score: this.score.value.toString(),
+            maxScore: maxScore.toString()
+        }));
         this.loadScreen.setStatus('primary');
         this.loadScreen.markEnd();
     }

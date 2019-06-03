@@ -1,4 +1,5 @@
 import config from '../config.json';
+import Utils from "./utils";
 
 export default class Translator {
     private static instance: Translator;
@@ -18,10 +19,6 @@ export default class Translator {
         return this._availableLanguages;
     }
 
-    get t(): { [key: string]: string } {
-        return this._t;
-    }
-
     private constructor() {
         this._availableLanguages = config.languages;
         this._currentLanguage = this._availableLanguages[0];
@@ -33,6 +30,22 @@ export default class Translator {
      */
     public static i(): Translator {
         return Translator.instance || (Translator.instance = new Translator());
+    }
+
+    /**
+     * Generic function to retrieve values from translation key & process them correctly
+     *
+     * @param translateKey
+     * @param replacements
+     */
+    public t(translateKey: string, replacements?: { [key: string]: string }): string {
+        let translateString = Utils.htmlEntityDecode(this._t[translateKey]);
+        if (replacements) {
+            Object.keys(replacements).forEach((key) => {
+                translateString = translateString.replace(`[[${key}]]`, replacements[key]);
+            });
+        }
+        return translateString;
     }
 
     public async setT(): Promise<any> {
