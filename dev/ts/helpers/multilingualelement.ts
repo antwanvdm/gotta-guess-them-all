@@ -7,7 +7,7 @@ export default abstract class MultilingualElement {
         window.addEventListener('translator:languageChange', () => this.renderProperties());
     }
 
-    protected renderProperties() {
+    protected renderProperties(): void {
         [...this.$element.querySelectorAll('[data-ml]')].forEach(($childElement) => {
             let dataML = $childElement.getAttribute('data-ml');
             let translateString = Translator.i().t($childElement.getAttribute('data-ml-key'));
