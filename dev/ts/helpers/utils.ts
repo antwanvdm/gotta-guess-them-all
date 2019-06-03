@@ -29,7 +29,11 @@ export default class Utils {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    static htmlEntityDecode(html: string):string{
+    /**
+     * @link https://stackoverflow.com/a/7394787
+     * @param html
+     */
+    static htmlEntityDecode(html: string): string {
         let txt = document.createElement("textarea");
         txt.innerHTML = html;
         return txt.value;
