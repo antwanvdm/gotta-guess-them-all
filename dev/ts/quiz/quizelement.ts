@@ -3,7 +3,7 @@ import Quiz from "./quiz";
 export default abstract class QuizElement {
     protected quiz: Quiz;
 
-    protected constructor(quiz: Quiz) {
+    public constructor(quiz: Quiz) {
         this.quiz = quiz;
         this.renderTemplate();
         window.addEventListener('translator:languageChange', () => this.renderTemplate());
