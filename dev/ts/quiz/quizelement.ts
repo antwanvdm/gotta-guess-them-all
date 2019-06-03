@@ -1,12 +1,13 @@
 import Quiz from "./quiz";
+import MultilingualElement from "../helpers/multilingualelement";
 
-export default abstract class QuizElement {
+export default abstract class QuizElement extends MultilingualElement {
     protected quiz: Quiz;
 
     public constructor(quiz: Quiz) {
+        super();
         this.quiz = quiz;
         this.renderTemplate();
-        window.addEventListener('translator:languageChange', () => this.renderTemplate());
     }
 
     abstract renderTemplate(): void;

@@ -3,19 +3,16 @@ import Translator from "../helpers/translator";
 import QuizElement from "./quizelement";
 
 export default class GuessForm extends QuizElement {
-    private $guessForm: HTMLFormElement;
     private $guessFormInput: HTMLInputElement;
 
     renderTemplate(): void {
-        document.getElementById('form-pokemon-guess') !== null ? document.getElementById('form-pokemon-guess').remove() : '';
-
         let $template = `
             <form id="form-pokemon-guess" class="is-hidden">
                 <progress id="progress" class="progress" value="0" max="100"></progress>
                 <div class="field">
                     <div class="control">
                         <label for="pokemon-guess-name" class="is-hidden"></label>
-                        <input id="pokemon-guess-name" class="input is-info is-expanded" type="text" placeholder="${Translator.i().t.guessPokemon}" autocomplete="off" autocorrect="off" autocapitalize="none"/>
+                        <input data-ml="placeholder" data-ml-key="guessPokemon" id="pokemon-guess-name" class="input is-info is-expanded" type="text" autocomplete="off" autocorrect="off" autocapitalize="none"/>
                     </div>
                 </div>
             </form>
@@ -27,19 +24,20 @@ export default class GuessForm extends QuizElement {
 
     renderTemplateDone(): void {
         setTimeout(() => {
-            this.$guessForm = document.getElementById('form-pokemon-guess') as HTMLFormElement;
+            this.$element = document.getElementById('form-pokemon-guess') as HTMLFormElement;
+            this.renderProperties();
             this.$guessFormInput = document.getElementById('pokemon-guess-name') as HTMLInputElement;
-            this.$guessForm.addEventListener('submit', (e) => this.guessFormSubmitHandler(e));
+            this.$element.addEventListener('submit', (e) => this.guessFormSubmitHandler(e));
             this.$guessFormInput.addEventListener('keyup', () => this.quiz.handleAnswer());
         }, 0);
     }
 
     public hide(): void {
-        this.$guessForm.classList.add('is-hidden');
+        this.$element.classList.add('is-hidden');
     }
 
     public show(): void {
-        this.$guessForm.classList.remove('is-hidden');
+        this.$element.classList.remove('is-hidden');
         this.$guessFormInput.value = "";
         this.$guessFormInput.focus();
     }

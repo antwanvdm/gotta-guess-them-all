@@ -6,13 +6,11 @@ export default class InitialScreen extends QuizElement {
     private $initialForm: HTMLFormElement;
 
     renderTemplate(): void {
-        document.getElementById('initial') !== null ? document.getElementById('initial').remove() : '';
-
         let $template = `
             <section id="initial" class="pageloader is-info">
                 <div class="title">
                     <form id="form-pokemon-initial">
-                        <label for="pokemon-guess-amount" class="label">${Translator.i().t.introQuestion}</label>
+                        <label data-ml data-ml-key="introQuestion" for="pokemon-guess-amount" class="label"></label>
                         
                         <div class="field">
                             ${this.getTemplateLanguages()}
@@ -23,10 +21,10 @@ export default class InitialScreen extends QuizElement {
                                 <input id="pokemon-guess-amount" class="input is-warning is-expanded" type="number" min="5" max="100" value="5" autofocus/>
                             </div>
                             <div class="control">
-                                <input id="pokemon-guess-username" class="input is-warning is-expanded" type="text" placeholder="${Translator.i().t.inputName}"/>
+                                <input data-ml="placeholder" data-ml-key="inputName" id="pokemon-guess-username" class="input is-warning is-expanded" type="text"/>
                             </div>
                             <div class="control">
-                                <input type="submit" class="button is-warning" value="${Translator.i().t.inputSubmit} &#x1F525;"/>
+                                <input data-ml="value" data-ml-key="inputSubmit" type="submit" class="button is-warning"/>
                             </div>
                         </div>
                     </form>
@@ -42,6 +40,8 @@ export default class InitialScreen extends QuizElement {
         this.quiz.$main.classList.remove('is-loading');
 
         setTimeout(() => {
+            this.$element = document.getElementById('initial');
+            this.renderProperties();
             this.$initialForm = document.getElementById('form-pokemon-initial') as HTMLFormElement;
             this.$initialForm.addEventListener('submit', (e) => this.quiz.initialFormSubmitHandler(e));
             [...this.$initialForm.querySelectorAll('input[name=language]')].map(($el: Element) => {

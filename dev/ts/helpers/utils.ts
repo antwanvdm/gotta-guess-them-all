@@ -29,6 +29,12 @@ export default class Utils {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    static htmlEntityDecode(html: string):string{
+        let txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+    }
+
     /**
      * @link http://detectmobilebrowsers.com/
      * @returns {boolean}

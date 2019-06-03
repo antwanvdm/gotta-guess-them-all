@@ -2,7 +2,7 @@
   "title": "Pokémon: Gotta guess them all!",
   "introQuestion": "How many Pokémon from gen I, II & III can you recognise in the blink of an eye?",
   "inputName": "your name",
-  "inputSubmit": "I'm gonna guess them all!",
+  "inputSubmit": "I'm gonna guess them all! &#x1F525;",
   "loading": "Pokémons are loaded into the system",
   "guessPokemon": "Who is this Pokémon?!",
   "wrongAnswer": "Nope! This Pokémon was [[pokemon]]! New Pokémon incoming!",

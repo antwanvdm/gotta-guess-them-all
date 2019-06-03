@@ -3,14 +3,10 @@ import Translator from "../helpers/translator";
 import QuizElement from "./quizelement";
 
 export default class LoadScreen extends QuizElement {
-    private $loadScreen: HTMLElement;
-
     renderTemplate(): void {
-        document.getElementById('pageloader') !== null ? document.getElementById('pageloader').remove() : '';
-
         let $template = `
             <section id="pageloader" class="pageloader is-warning">
-                <span class="title">${Translator.i().t.loading}</span>
+                <span data-ml data-ml-key="loading" class="title"></span>
             </section>
         `;
 
@@ -20,16 +16,17 @@ export default class LoadScreen extends QuizElement {
 
     renderTemplateDone(): void {
         setTimeout(() => {
-            this.$loadScreen = document.getElementById("pageloader");
+            this.$element = document.getElementById("pageloader");
+            this.renderProperties();
         }, 0);
     }
 
     public show(): void {
-        this.$loadScreen.classList.add('is-active');
+        this.$element.classList.add('is-active');
     }
 
     public hide(): void {
-        this.$loadScreen.classList.remove('is-active');
+        this.$element.classList.remove('is-active');
     }
 
     public triggerNewQuestion(): void {
@@ -41,19 +38,19 @@ export default class LoadScreen extends QuizElement {
     }
 
     public changeTitle(value: string): void {
-        this.$loadScreen.querySelector('.title').innerHTML = value;
+        this.$element.querySelector('.title').innerHTML = value;
     }
 
     /**
      * @param status
      */
     public setStatus(status: string): void {
-        this.$loadScreen.classList.remove('is-warning', 'is-success', 'is-danger', 'is-primary');
-        this.$loadScreen.classList.add(`is-${status}`);
+        this.$element.classList.remove('is-warning', 'is-success', 'is-danger', 'is-primary');
+        this.$element.classList.add(`is-${status}`);
     }
 
     public markEnd(): void {
         this.show();
-        this.$loadScreen.classList.add('end-screen');
+        this.$element.classList.add('end-screen');
     }
 }
