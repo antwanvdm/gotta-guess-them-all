@@ -24,7 +24,7 @@ demo here: [Check it out!](https://gotta-guess-them-all.antwan.eu)
 4. Run `npm install` in the root folder for the right tools
 5. Run `npm run watch` in the root folder while developing
 6. Have a web server running with the `/docs` folder as root folder
-7. Add the `dev/config.json` file as it isn't part of the git code. Contents
+7. Add the `dev/ts/config.json` file as it isn't part of the git code. Contents
 should look like the following code.
 ```
 {

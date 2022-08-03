@@ -3,8 +3,8 @@ import config from '../config.json';
 export default class Timer {
     private readonly totalSeconds: number = config.game.secondsPerQuestion;
     private _seconds: number = this.totalSeconds;
-    private intervalId: number;
-    private progressbarIntervalId: number;
+    private intervalId: NodeJS.Timer;
+    private progressbarIntervalId: NodeJS.Timer;
     private progressbarStartTime: number;
     private $progress: HTMLElement;
     private performanceStamp: number;

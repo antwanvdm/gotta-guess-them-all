@@ -31,15 +31,14 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '../css/style.css'
+            filename: 'css/style.css'
         }),
     ],
     resolve: {
-        extensions: [".tsx", ".ts", ".js", ".scss"]
+        extensions: [".tsx", ".ts", ".js", ".scss", ".json"]
     },
     output: {
-        path: path.resolve(__dirname, "docs/js"),
-        publicPath: "/js/", //Only used to fix code splitting... @todo Check why this is needed
-        filename: "main.js"
+        path: path.resolve(__dirname, "docs"),
+        filename: "js/main.js"
     }
 };
